@@ -1,10 +1,98 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "import", "@typescript-eslint", "prettier"],
+  "extends": [
+    "plugin:@nrwl/nx/javascript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier",
+    "airbnb-base"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/extensions": ["error", {
+      "js": "never",
+      "jsx": "never",
+      "ts": "never",
+      "tsx": "never"
+    }],
+    "no-use-before-define": ["error", {
+      "functions": false,
+      "classes": true,
+      "variables": true,
+      "allowNamedExports": false
+    }],
+    "import/prefer-default-export": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off",
+    "implicit-arrow-linebreak": "off",
+    "new-cap": "off",
+    "no-restricted-syntax": "off",
+    "brace-style": "off", // We use prettier configs to this
+    "no-useless-concat":"off",
+    "max-len": [
+      "error",
+      {
+        "code": 100
+      }
+    ],
+    "object-curly-newline": ["error", { "consistent": true }],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always"
+      }
+    ],
+    "prefer-regex-literals": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error", { "hoist": "never" }],
+    "max-classes-per-file": "off",
+    "consistent-return": "off",
+    "class-methods-use-this": "off",
+    "prefer-template": "off",// We use prettier configs to this
+    "indent": "off",// We use prettier configs to this
+    "operator-linebreak": "off",// We use prettier configs to this
+    "function-paren-newline": "off",// We use prettier configs to this
+    "no-param-reassign": ["error", { "props": false }],
+    "semi": ["error", "never"],
+    "arrow-parens": ["error", "as-needed"],
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "info", "error"]
+      }
+    ],
+    "import/named": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "destructuredArrayIgnorePattern": "^_", "ignoreRestSiblings": true }],
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "excludedFiles": ["**/tests/**"],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
@@ -20,23 +108,6 @@
           }
         ]
       }
-    },
-    {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
-      "env": {
-        "jest": true
-      },
-      "rules": {}
     }
   ]
 }
