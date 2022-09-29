@@ -33,7 +33,7 @@
     "implicit-arrow-linebreak": "off",
     "new-cap": "off",
     "no-restricted-syntax": "off",
-    "brace-style": "off", // We use prettier configs to this
+    "brace-style": "off", // Use prettier
     "no-useless-concat":"off",
     "max-len": [
       "error",
@@ -55,10 +55,10 @@
     "max-classes-per-file": "off",
     "consistent-return": "off",
     "class-methods-use-this": "off",
-    "prefer-template": "off",// We use prettier configs to this
-    "indent": "off",// We use prettier configs to this
-    "operator-linebreak": "off",// We use prettier configs to this
-    "function-paren-newline": "off",// We use prettier configs to this
+    "prefer-template": "off",// Use prettier
+    "indent": "off",// Use prettier
+    "operator-linebreak": "off",// Use prettier
+    "function-paren-newline": "off",// Use prettier
     "no-param-reassign": ["error", { "props": false }],
     "semi": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
@@ -78,7 +78,9 @@
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
-      "typescript": {},
+      "typescript": {
+        "project": "./tsconfig.base.json"
+      },
       "node": {
         "extensions": [
           ".ts",
