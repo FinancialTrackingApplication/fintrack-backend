@@ -11,8 +11,13 @@
   "private": true,
   "dependencies": {
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "2.2.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/graphql": "10.1.2",
+    "@nestjs/mongoose": "9.2.0",
     "@nestjs/platform-express": "^9.0.0",
+    "graphql": "16.6.0",
+    "mongoose": "6.6.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
     "tslib": "^2.3.0"
@@ -28,6 +33,7 @@
     "@nrwl/node": "14.8.1",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "14.8.1",
+    "@types/graphql": "14.5.0",
     "@types/jest": "29.0.3",
     "@types/node": "18.7.23",
     "@typescript-eslint/eslint-plugin": "5.38.1",
