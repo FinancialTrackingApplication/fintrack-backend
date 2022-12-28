@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@database-lib": ["libs/database/src/index.ts"]
+      "@libs/database": ["libs/database/src/index.ts"]
     },
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
