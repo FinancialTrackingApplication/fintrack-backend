@@ -7,6 +7,22 @@ export default () => ({
   database: {
     url: process.env.MONGODB_URL,
   },
+  cors: {
+    methods: ['GET', 'POST', 'OPTION'],
+    origin: '0.0.0.0',
+  },
+  auth: {
+    antiCsrfHeader: process.env.ANTI_CSRF_HEADER,
+    jwtSecret: process.env.JWT_SECRET,
+    cookieSecret: process.env.COOKIE_SECRET,
+  },
+  cookie: {
+    baseConfig: {
+      secure: 'auto',
+      signed: true,
+      maxAge: 7 * 24 * 3600 * 1000,
+    },
+  },
   passwordSettings: {
     saltLength: parseInt(process.env.PASSWORD_SALT_LENGTH as string, 10),
     iterations: parseInt(process.env.PASSWORD_ITERATIONS as string, 10),
